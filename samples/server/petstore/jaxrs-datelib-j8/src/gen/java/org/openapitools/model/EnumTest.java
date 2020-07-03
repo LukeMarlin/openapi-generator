@@ -181,9 +181,42 @@ public class EnumTest  implements Serializable {
   @JsonProperty(JSON_PROPERTY_ENUM_NUMBER)
   private EnumNumberEnum enumNumber;
 
+  /**
+   * Gets or Sets outerEnum
+   */
+  public enum OuterEnumEnum {
+    PLACED("placed"),
+    
+    APPROVED("approved"),
+    
+    DELIVERED("delivered");
+
+    private OuterEnum value;
+
+    OuterEnumEnum(OuterEnum value) {
+      this.value = value;
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OuterEnumEnum fromValue(OuterEnum value) {
+      for (OuterEnumEnum b : OuterEnumEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
   public static final String JSON_PROPERTY_OUTER_ENUM = "outerEnum";
   @JsonProperty(JSON_PROPERTY_OUTER_ENUM)
-  private OuterEnum outerEnum;
+  private OuterEnumEnum outerEnum;
 
   public EnumTest enumString(EnumStringEnum enumString) {
     this.enumString = enumString;
@@ -265,7 +298,7 @@ public class EnumTest  implements Serializable {
     this.enumNumber = enumNumber;
   }
 
-  public EnumTest outerEnum(OuterEnum outerEnum) {
+  public EnumTest outerEnum(OuterEnumEnum outerEnum) {
     this.outerEnum = outerEnum;
     return this;
   }
@@ -277,11 +310,11 @@ public class EnumTest  implements Serializable {
   @JsonProperty("outerEnum")
   @ApiModelProperty(value = "")
   @Valid 
-  public OuterEnum getOuterEnum() {
+  public OuterEnumEnum getOuterEnum() {
     return outerEnum;
   }
 
-  public void setOuterEnum(OuterEnum outerEnum) {
+  public void setOuterEnum(OuterEnumEnum outerEnum) {
     this.outerEnum = outerEnum;
   }
 

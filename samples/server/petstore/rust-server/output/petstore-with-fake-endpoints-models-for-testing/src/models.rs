@@ -2367,6 +2367,7 @@ pub struct EnumTest {
     #[serde(skip_serializing_if="Option::is_none")]
     pub enum_number: Option<f64>,
 
+    // Note: inline enums are not fully supported by openapi-generator
     #[serde(rename = "outerEnum")]
     #[serde(skip_serializing_if="Option::is_none")]
     pub outer_enum: Option<models::OuterEnum>,

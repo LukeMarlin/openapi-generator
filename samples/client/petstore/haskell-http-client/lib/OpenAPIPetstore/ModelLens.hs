@@ -424,7 +424,7 @@ enumTestEnumNumberL f EnumTest{..} = (\enumTestEnumNumber -> EnumTest { enumTest
 {-# INLINE enumTestEnumNumberL #-}
 
 -- | 'enumTestOuterEnum' Lens
-enumTestOuterEnumL :: Lens_' EnumTest (Maybe OuterEnum)
+enumTestOuterEnumL :: Lens_' EnumTest (Maybe E'OuterEnum)
 enumTestOuterEnumL f EnumTest{..} = (\enumTestOuterEnum -> EnumTest { enumTestOuterEnum, ..} ) <$> f enumTestOuterEnum
 {-# INLINE enumTestOuterEnumL #-}
 

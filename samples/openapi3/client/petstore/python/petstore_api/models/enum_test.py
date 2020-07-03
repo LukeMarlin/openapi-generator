@@ -213,6 +213,12 @@ class EnumTest(object):
         :param outer_enum: The outer_enum of this EnumTest.  # noqa: E501
         :type outer_enum: OuterEnum
         """
+        allowed_values = [None,placed, approved, delivered]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and outer_enum not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `outer_enum` ({0}), must be one of {1}"  # noqa: E501
+                .format(outer_enum, allowed_values)
+            )
 
         self._outer_enum = outer_enum
 
@@ -234,6 +240,12 @@ class EnumTest(object):
         :param outer_enum_integer: The outer_enum_integer of this EnumTest.  # noqa: E501
         :type outer_enum_integer: OuterEnumInteger
         """
+        allowed_values = [0, 1, 2]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and outer_enum_integer not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `outer_enum_integer` ({0}), must be one of {1}"  # noqa: E501
+                .format(outer_enum_integer, allowed_values)
+            )
 
         self._outer_enum_integer = outer_enum_integer
 
@@ -255,6 +267,12 @@ class EnumTest(object):
         :param outer_enum_default_value: The outer_enum_default_value of this EnumTest.  # noqa: E501
         :type outer_enum_default_value: OuterEnumDefaultValue
         """
+        allowed_values = [placed, approved, delivered]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and outer_enum_default_value not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `outer_enum_default_value` ({0}), must be one of {1}"  # noqa: E501
+                .format(outer_enum_default_value, allowed_values)
+            )
 
         self._outer_enum_default_value = outer_enum_default_value
 
@@ -276,6 +294,12 @@ class EnumTest(object):
         :param outer_enum_integer_default_value: The outer_enum_integer_default_value of this EnumTest.  # noqa: E501
         :type outer_enum_integer_default_value: OuterEnumIntegerDefaultValue
         """
+        allowed_values = [0, 1, 2]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and outer_enum_integer_default_value not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `outer_enum_integer_default_value` ({0}), must be one of {1}"  # noqa: E501
+                .format(outer_enum_integer_default_value, allowed_values)
+            )
 
         self._outer_enum_integer_default_value = outer_enum_integer_default_value
 

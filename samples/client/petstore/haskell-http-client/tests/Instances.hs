@@ -335,7 +335,7 @@ genEnumTest n =
     <*> arbitrary -- enumTestEnumStringRequired :: E'EnumString
     <*> arbitraryReducedMaybe n -- enumTestEnumInteger :: Maybe E'EnumInteger
     <*> arbitraryReducedMaybe n -- enumTestEnumNumber :: Maybe E'EnumNumber
-    <*> arbitraryReducedMaybe n -- enumTestOuterEnum :: Maybe OuterEnum
+    <*> arbitraryReducedMaybe n -- enumTestOuterEnum :: Maybe E'OuterEnum
   
 instance Arbitrary File where
   arbitrary = sized genFile

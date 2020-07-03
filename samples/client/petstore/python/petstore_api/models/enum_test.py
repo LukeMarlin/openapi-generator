@@ -199,6 +199,12 @@ class EnumTest(object):
         :param outer_enum: The outer_enum of this EnumTest.  # noqa: E501
         :type outer_enum: OuterEnum
         """
+        allowed_values = [placed, approved, delivered]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and outer_enum not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `outer_enum` ({0}), must be one of {1}"  # noqa: E501
+                .format(outer_enum, allowed_values)
+            )
 
         self._outer_enum = outer_enum
 

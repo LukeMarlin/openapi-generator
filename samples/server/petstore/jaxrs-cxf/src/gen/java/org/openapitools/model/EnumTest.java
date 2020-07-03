@@ -156,9 +156,41 @@ public enum EnumNumberEnum {
   @ApiModelProperty(value = "")
   private EnumNumberEnum enumNumber;
 
+@XmlType(name="OuterEnumEnum")
+@XmlEnum(OuterEnum.class)
+public enum OuterEnumEnum {
+
+@XmlEnumValue("placed") PLACED(OuterEnum.valueOf("placed")), @XmlEnumValue("approved") APPROVED(OuterEnum.valueOf("approved")), @XmlEnumValue("delivered") DELIVERED(OuterEnum.valueOf("delivered"));
+
+
+    private OuterEnum value;
+
+    OuterEnumEnum (OuterEnum v) {
+        value = v;
+    }
+
+    public OuterEnum value() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    public static OuterEnumEnum fromValue(OuterEnum value) {
+        for (OuterEnumEnum b : OuterEnumEnum.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+}
+
   @ApiModelProperty(value = "")
   @Valid
-  private OuterEnum outerEnum;
+  private OuterEnumEnum outerEnum;
  /**
    * Get enumString
    * @return enumString
@@ -250,14 +282,17 @@ public enum EnumNumberEnum {
   **/
   @JsonProperty("outerEnum")
   public OuterEnum getOuterEnum() {
-    return outerEnum;
+    if (outerEnum == null) {
+      return null;
+    }
+    return outerEnum.value();
   }
 
-  public void setOuterEnum(OuterEnum outerEnum) {
+  public void setOuterEnum(OuterEnumEnum outerEnum) {
     this.outerEnum = outerEnum;
   }
 
-  public EnumTest outerEnum(OuterEnum outerEnum) {
+  public EnumTest outerEnum(OuterEnumEnum outerEnum) {
     this.outerEnum = outerEnum;
     return this;
   }

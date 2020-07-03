@@ -10,10 +10,10 @@ Name | Type | Description | Notes
 **enumStringRequired** | [**EnumStringRequiredEnum**](#EnumStringRequiredEnum) |  | 
 **enumInteger** | [**EnumIntegerEnum**](#EnumIntegerEnum) |  |  [optional]
 **enumNumber** | [**EnumNumberEnum**](#EnumNumberEnum) |  |  [optional]
-**outerEnum** | [**OuterEnum**](OuterEnum.md) |  |  [optional]
-**outerEnumInteger** | [**OuterEnumInteger**](OuterEnumInteger.md) |  |  [optional]
-**outerEnumDefaultValue** | [**OuterEnumDefaultValue**](OuterEnumDefaultValue.md) |  |  [optional]
-**outerEnumIntegerDefaultValue** | [**OuterEnumIntegerDefaultValue**](OuterEnumIntegerDefaultValue.md) |  |  [optional]
+**outerEnum** | [**OuterEnumEnum**](#OuterEnumEnum) |  |  [optional]
+**outerEnumInteger** | [**OuterEnumIntegerEnum**](#OuterEnumIntegerEnum) |  |  [optional]
+**outerEnumDefaultValue** | [**OuterEnumDefaultValueEnum**](#OuterEnumDefaultValueEnum) |  |  [optional]
+**outerEnumIntegerDefaultValue** | [**OuterEnumIntegerDefaultValueEnum**](#OuterEnumIntegerDefaultValueEnum) |  |  [optional]
 
 
 
@@ -52,6 +52,46 @@ Name | Value
 ---- | -----
 NUMBER_1_DOT_1 | 1.1
 NUMBER_MINUS_1_DOT_2 | -1.2
+
+
+
+## Enum: OuterEnumEnum
+
+Name | Value
+---- | -----
+PLACED | &quot;placed&quot;
+APPROVED | &quot;approved&quot;
+DELIVERED | &quot;delivered&quot;
+
+
+
+## Enum: OuterEnumIntegerEnum
+
+Name | Value
+---- | -----
+NUMBER_0 | 0
+NUMBER_1 | 1
+NUMBER_2 | 2
+
+
+
+## Enum: OuterEnumDefaultValueEnum
+
+Name | Value
+---- | -----
+PLACED | &quot;placed&quot;
+APPROVED | &quot;approved&quot;
+DELIVERED | &quot;delivered&quot;
+
+
+
+## Enum: OuterEnumIntegerDefaultValueEnum
+
+Name | Value
+---- | -----
+NUMBER_0 | 0
+NUMBER_1 | 1
+NUMBER_2 | 2
 
 
 

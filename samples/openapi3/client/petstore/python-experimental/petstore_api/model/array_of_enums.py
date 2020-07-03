@@ -61,6 +61,11 @@ class ArrayOfEnums(ModelSimple):
     """
 
     allowed_values = {
+        ('value',): {
+            'PLACED': "placed",
+            'APPROVED': "approved",
+            'DELIVERED': "delivered",
+        },
     }
 
     validations = {
