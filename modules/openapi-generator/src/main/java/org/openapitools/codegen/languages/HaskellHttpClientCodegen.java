@@ -1373,7 +1373,7 @@ public class HaskellHttpClientCodegen extends DefaultCodegen implements CodegenC
     }
 
     private void updateAllowableValuesNames(String paramNameType, Map<String, Object> allowableValues) {
-        if (allowableValues == null) {
+        if (allowableValues == null || allowableValues.get("enumVars") == null) {
             return;
         }
         for (Map<String, String> enumVar : (List<Map<String, String>>) allowableValues.get("enumVars")) {

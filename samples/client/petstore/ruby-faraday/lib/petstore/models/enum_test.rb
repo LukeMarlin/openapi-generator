@@ -158,13 +158,13 @@ module Petstore
       return false unless enum_integer_validator.valid?(@enum_integer)
       enum_number_validator = EnumAttributeValidator.new('Float', [1.1, -1.2])
       return false unless enum_number_validator.valid?(@enum_number)
-      outer_enum_validator = EnumAttributeValidator.new('OuterEnum', ["placed", "approved", "delivered"])
+      outer_enum_validator = EnumAttributeValidator.new('OuterEnum', [])
       return false unless outer_enum_validator.valid?(@outer_enum)
-      outer_enum_integer_validator = EnumAttributeValidator.new('OuterEnumInteger', [0, 1, 2])
+      outer_enum_integer_validator = EnumAttributeValidator.new('OuterEnumInteger', [])
       return false unless outer_enum_integer_validator.valid?(@outer_enum_integer)
-      outer_enum_default_value_validator = EnumAttributeValidator.new('OuterEnumDefaultValue', ["placed", "approved", "delivered"])
+      outer_enum_default_value_validator = EnumAttributeValidator.new('OuterEnumDefaultValue', [])
       return false unless outer_enum_default_value_validator.valid?(@outer_enum_default_value)
-      outer_enum_integer_default_value_validator = EnumAttributeValidator.new('OuterEnumIntegerDefaultValue', [0, 1, 2])
+      outer_enum_integer_default_value_validator = EnumAttributeValidator.new('OuterEnumIntegerDefaultValue', [])
       return false unless outer_enum_integer_default_value_validator.valid?(@outer_enum_integer_default_value)
       true
     end
@@ -212,7 +212,7 @@ module Petstore
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] outer_enum Object to be assigned
     def outer_enum=(outer_enum)
-      validator = EnumAttributeValidator.new('OuterEnum', ["placed", "approved", "delivered"])
+      validator = EnumAttributeValidator.new('OuterEnum', [])
       unless validator.valid?(outer_enum)
         fail ArgumentError, "invalid value for \"outer_enum\", must be one of #{validator.allowable_values}."
       end
@@ -222,7 +222,7 @@ module Petstore
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] outer_enum_integer Object to be assigned
     def outer_enum_integer=(outer_enum_integer)
-      validator = EnumAttributeValidator.new('OuterEnumInteger', [0, 1, 2])
+      validator = EnumAttributeValidator.new('OuterEnumInteger', [])
       unless validator.valid?(outer_enum_integer)
         fail ArgumentError, "invalid value for \"outer_enum_integer\", must be one of #{validator.allowable_values}."
       end
@@ -232,7 +232,7 @@ module Petstore
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] outer_enum_default_value Object to be assigned
     def outer_enum_default_value=(outer_enum_default_value)
-      validator = EnumAttributeValidator.new('OuterEnumDefaultValue', ["placed", "approved", "delivered"])
+      validator = EnumAttributeValidator.new('OuterEnumDefaultValue', [])
       unless validator.valid?(outer_enum_default_value)
         fail ArgumentError, "invalid value for \"outer_enum_default_value\", must be one of #{validator.allowable_values}."
       end
@@ -242,7 +242,7 @@ module Petstore
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] outer_enum_integer_default_value Object to be assigned
     def outer_enum_integer_default_value=(outer_enum_integer_default_value)
-      validator = EnumAttributeValidator.new('OuterEnumIntegerDefaultValue', [0, 1, 2])
+      validator = EnumAttributeValidator.new('OuterEnumIntegerDefaultValue', [])
       unless validator.valid?(outer_enum_integer_default_value)
         fail ArgumentError, "invalid value for \"outer_enum_integer_default_value\", must be one of #{validator.allowable_values}."
       end

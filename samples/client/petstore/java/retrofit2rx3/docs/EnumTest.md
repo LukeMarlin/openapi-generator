@@ -56,9 +56,6 @@ NUMBER_MINUS_1_DOT_2 | -1.2
 
 Name | Value
 ---- | -----
-PLACED | &quot;placed&quot;
-APPROVED | &quot;approved&quot;
-DELIVERED | &quot;delivered&quot;
 
 
 

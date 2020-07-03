@@ -156,7 +156,7 @@ public enum EnumNumberEnum {
 
 public enum OuterEnumEnum {
 
-    PLACED(OuterEnum.valueOf("placed")), APPROVED(OuterEnum.valueOf("approved")), DELIVERED(OuterEnum.valueOf("delivered"));
+    
 
 
     private OuterEnum value;

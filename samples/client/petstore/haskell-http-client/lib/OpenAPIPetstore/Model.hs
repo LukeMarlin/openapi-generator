@@ -2101,9 +2101,7 @@ toE'EnumFormStringArray = \case
 
 -- | Enum of 'Int'
 data E'EnumInteger
-  = E'EnumInteger'Num1 -- ^ @1@
-  | E'EnumInteger'NumMinus_1 -- ^ @-1@
-  deriving (P.Show, P.Eq, P.Typeable, P.Ord, P.Bounded, P.Enum)
+  = 
 
 instance A.ToJSON E'EnumInteger where toJSON = A.toJSON . fromE'EnumInteger
 instance A.FromJSON E'EnumInteger where parseJSON o = P.either P.fail (pure . P.id) . toE'EnumInteger =<< A.parseJSON o
@@ -2114,14 +2112,10 @@ instance MimeRender MimeMultipartFormData E'EnumInteger where mimeRender _ = mim
 -- | unwrap 'E'EnumInteger' enum
 fromE'EnumInteger :: E'EnumInteger -> Int
 fromE'EnumInteger = \case
-  E'EnumInteger'Num1 -> 1
-  E'EnumInteger'NumMinus_1 -> -1
 
 -- | parse 'E'EnumInteger' enum
 toE'EnumInteger :: Int -> P.Either String E'EnumInteger
 toE'EnumInteger = \case
-  1 -> P.Right E'EnumInteger'Num1
-  -1 -> P.Right E'EnumInteger'NumMinus_1
   s -> P.Left $ "toE'EnumInteger: enum parse failure: " P.++ P.show s
 
 
@@ -2129,9 +2123,7 @@ toE'EnumInteger = \case
 
 -- | Enum of 'Double'
 data E'EnumNumber
-  = E'EnumNumber'Num1_Dot_1 -- ^ @1.1@
-  | E'EnumNumber'NumMinus_1_Dot_2 -- ^ @-1.2@
-  deriving (P.Show, P.Eq, P.Typeable, P.Ord, P.Bounded, P.Enum)
+  = 
 
 instance A.ToJSON E'EnumNumber where toJSON = A.toJSON . fromE'EnumNumber
 instance A.FromJSON E'EnumNumber where parseJSON o = P.either P.fail (pure . P.id) . toE'EnumNumber =<< A.parseJSON o
@@ -2142,14 +2134,10 @@ instance MimeRender MimeMultipartFormData E'EnumNumber where mimeRender _ = mime
 -- | unwrap 'E'EnumNumber' enum
 fromE'EnumNumber :: E'EnumNumber -> Double
 fromE'EnumNumber = \case
-  E'EnumNumber'Num1_Dot_1 -> 1.1
-  E'EnumNumber'NumMinus_1_Dot_2 -> -1.2
 
 -- | parse 'E'EnumNumber' enum
 toE'EnumNumber :: Double -> P.Either String E'EnumNumber
 toE'EnumNumber = \case
-  1.1 -> P.Right E'EnumNumber'Num1_Dot_1
-  -1.2 -> P.Right E'EnumNumber'NumMinus_1_Dot_2
   s -> P.Left $ "toE'EnumNumber: enum parse failure: " P.++ P.show s
 
 
@@ -2185,10 +2173,7 @@ toE'EnumQueryInteger = \case
 
 -- | Enum of 'Text'
 data E'EnumString
-  = E'EnumString'UPPER -- ^ @"UPPER"@
-  | E'EnumString'Lower -- ^ @"lower"@
-  | E'EnumString'Empty -- ^ @""@
-  deriving (P.Show, P.Eq, P.Typeable, P.Ord, P.Bounded, P.Enum)
+  = 
 
 instance A.ToJSON E'EnumString where toJSON = A.toJSON . fromE'EnumString
 instance A.FromJSON E'EnumString where parseJSON o = P.either P.fail (pure . P.id) . toE'EnumString =<< A.parseJSON o
@@ -2199,16 +2184,10 @@ instance MimeRender MimeMultipartFormData E'EnumString where mimeRender _ = mime
 -- | unwrap 'E'EnumString' enum
 fromE'EnumString :: E'EnumString -> Text
 fromE'EnumString = \case
-  E'EnumString'UPPER -> "UPPER"
-  E'EnumString'Lower -> "lower"
-  E'EnumString'Empty -> ""
 
 -- | parse 'E'EnumString' enum
 toE'EnumString :: Text -> P.Either String E'EnumString
 toE'EnumString = \case
-  "UPPER" -> P.Right E'EnumString'UPPER
-  "lower" -> P.Right E'EnumString'Lower
-  "" -> P.Right E'EnumString'Empty
   s -> P.Left $ "toE'EnumString: enum parse failure: " P.++ P.show s
 
 
@@ -2244,9 +2223,7 @@ toE'Inner = \case
 
 -- | Enum of 'Text'
 data E'JustSymbol
-  = E'JustSymbol'Greater_Than_Or_Equal_To -- ^ @">="@
-  | E'JustSymbol'Dollar -- ^ @"$"@
-  deriving (P.Show, P.Eq, P.Typeable, P.Ord, P.Bounded, P.Enum)
+  = 
 
 instance A.ToJSON E'JustSymbol where toJSON = A.toJSON . fromE'JustSymbol
 instance A.FromJSON E'JustSymbol where parseJSON o = P.either P.fail (pure . P.id) . toE'JustSymbol =<< A.parseJSON o
@@ -2257,14 +2234,10 @@ instance MimeRender MimeMultipartFormData E'JustSymbol where mimeRender _ = mime
 -- | unwrap 'E'JustSymbol' enum
 fromE'JustSymbol :: E'JustSymbol -> Text
 fromE'JustSymbol = \case
-  E'JustSymbol'Greater_Than_Or_Equal_To -> ">="
-  E'JustSymbol'Dollar -> "$"
 
 -- | parse 'E'JustSymbol' enum
 toE'JustSymbol :: Text -> P.Either String E'JustSymbol
 toE'JustSymbol = \case
-  ">=" -> P.Right E'JustSymbol'Greater_Than_Or_Equal_To
-  "$" -> P.Right E'JustSymbol'Dollar
   s -> P.Left $ "toE'JustSymbol: enum parse failure: " P.++ P.show s
 
 
@@ -2272,11 +2245,7 @@ toE'JustSymbol = \case
 
 -- | Enum of 'Text'
 data E'Kind
-  = E'Kind'Lions -- ^ @"lions"@
-  | E'Kind'Tigers -- ^ @"tigers"@
-  | E'Kind'Leopards -- ^ @"leopards"@
-  | E'Kind'Jaguars -- ^ @"jaguars"@
-  deriving (P.Show, P.Eq, P.Typeable, P.Ord, P.Bounded, P.Enum)
+  = 
 
 instance A.ToJSON E'Kind where toJSON = A.toJSON . fromE'Kind
 instance A.FromJSON E'Kind where parseJSON o = P.either P.fail (pure . P.id) . toE'Kind =<< A.parseJSON o
@@ -2287,18 +2256,10 @@ instance MimeRender MimeMultipartFormData E'Kind where mimeRender _ = mimeRender
 -- | unwrap 'E'Kind' enum
 fromE'Kind :: E'Kind -> Text
 fromE'Kind = \case
-  E'Kind'Lions -> "lions"
-  E'Kind'Tigers -> "tigers"
-  E'Kind'Leopards -> "leopards"
-  E'Kind'Jaguars -> "jaguars"
 
 -- | parse 'E'Kind' enum
 toE'Kind :: Text -> P.Either String E'Kind
 toE'Kind = \case
-  "lions" -> P.Right E'Kind'Lions
-  "tigers" -> P.Right E'Kind'Tigers
-  "leopards" -> P.Right E'Kind'Leopards
-  "jaguars" -> P.Right E'Kind'Jaguars
   s -> P.Left $ "toE'Kind: enum parse failure: " P.++ P.show s
 
 
@@ -2307,10 +2268,7 @@ toE'Kind = \case
 -- | Enum of 'Text' .
 -- Order Status
 data E'Status
-  = E'Status'Placed -- ^ @"placed"@
-  | E'Status'Approved -- ^ @"approved"@
-  | E'Status'Delivered -- ^ @"delivered"@
-  deriving (P.Show, P.Eq, P.Typeable, P.Ord, P.Bounded, P.Enum)
+  = 
 
 instance A.ToJSON E'Status where toJSON = A.toJSON . fromE'Status
 instance A.FromJSON E'Status where parseJSON o = P.either P.fail (pure . P.id) . toE'Status =<< A.parseJSON o
@@ -2321,16 +2279,10 @@ instance MimeRender MimeMultipartFormData E'Status where mimeRender _ = mimeRend
 -- | unwrap 'E'Status' enum
 fromE'Status :: E'Status -> Text
 fromE'Status = \case
-  E'Status'Placed -> "placed"
-  E'Status'Approved -> "approved"
-  E'Status'Delivered -> "delivered"
 
 -- | parse 'E'Status' enum
 toE'Status :: Text -> P.Either String E'Status
 toE'Status = \case
-  "placed" -> P.Right E'Status'Placed
-  "approved" -> P.Right E'Status'Approved
-  "delivered" -> P.Right E'Status'Delivered
   s -> P.Left $ "toE'Status: enum parse failure: " P.++ P.show s
 
 
@@ -2339,10 +2291,7 @@ toE'Status = \case
 -- | Enum of 'Text' .
 -- pet status in the store
 data E'Status2
-  = E'Status2'Available -- ^ @"available"@
-  | E'Status2'Pending -- ^ @"pending"@
-  | E'Status2'Sold -- ^ @"sold"@
-  deriving (P.Show, P.Eq, P.Typeable, P.Ord, P.Bounded, P.Enum)
+  = 
 
 instance A.ToJSON E'Status2 where toJSON = A.toJSON . fromE'Status2
 instance A.FromJSON E'Status2 where parseJSON o = P.either P.fail (pure . P.id) . toE'Status2 =<< A.parseJSON o
@@ -2353,16 +2302,10 @@ instance MimeRender MimeMultipartFormData E'Status2 where mimeRender _ = mimeRen
 -- | unwrap 'E'Status2' enum
 fromE'Status2 :: E'Status2 -> Text
 fromE'Status2 = \case
-  E'Status2'Available -> "available"
-  E'Status2'Pending -> "pending"
-  E'Status2'Sold -> "sold"
 
 -- | parse 'E'Status2' enum
 toE'Status2 :: Text -> P.Either String E'Status2
 toE'Status2 = \case
-  "available" -> P.Right E'Status2'Available
-  "pending" -> P.Right E'Status2'Pending
-  "sold" -> P.Right E'Status2'Sold
   s -> P.Left $ "toE'Status2: enum parse failure: " P.++ P.show s
 
 

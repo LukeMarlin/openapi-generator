@@ -209,11 +209,6 @@ public class EnumTest {
    * Gets or Sets outerEnum
    */
   public enum OuterEnumEnum {
-    PLACED("placed"),
-    
-    APPROVED("approved"),
-    
-    DELIVERED("delivered");
 
     private OuterEnum value;
 
@@ -249,11 +244,6 @@ public class EnumTest {
    * Gets or Sets outerEnumInteger
    */
   public enum OuterEnumIntegerEnum {
-    NUMBER_0(0),
-    
-    NUMBER_1(1),
-    
-    NUMBER_2(2);
 
     private OuterEnumInteger value;
 
@@ -289,11 +279,6 @@ public class EnumTest {
    * Gets or Sets outerEnumDefaultValue
    */
   public enum OuterEnumDefaultValueEnum {
-    PLACED("placed"),
-    
-    APPROVED("approved"),
-    
-    DELIVERED("delivered");
 
     private OuterEnumDefaultValue value;
 
@@ -323,17 +308,12 @@ public class EnumTest {
   }
 
   public static final String JSON_PROPERTY_OUTER_ENUM_DEFAULT_VALUE = "outerEnumDefaultValue";
-  private OuterEnumDefaultValueEnum outerEnumDefaultValue = OuterEnumDefaultValueEnum.PLACED;
+  private OuterEnumDefaultValueEnum outerEnumDefaultValue = placed;
 
   /**
    * Gets or Sets outerEnumIntegerDefaultValue
    */
   public enum OuterEnumIntegerDefaultValueEnum {
-    NUMBER_0(0),
-    
-    NUMBER_1(1),
-    
-    NUMBER_2(2);
 
     private OuterEnumIntegerDefaultValue value;
 
@@ -363,7 +343,7 @@ public class EnumTest {
   }
 
   public static final String JSON_PROPERTY_OUTER_ENUM_INTEGER_DEFAULT_VALUE = "outerEnumIntegerDefaultValue";
-  private OuterEnumIntegerDefaultValueEnum outerEnumIntegerDefaultValue = OuterEnumIntegerDefaultValueEnum.NUMBER_0;
+  private OuterEnumIntegerDefaultValueEnum outerEnumIntegerDefaultValue = 0;
 
 
   public EnumTest enumString(EnumStringEnum enumString) {

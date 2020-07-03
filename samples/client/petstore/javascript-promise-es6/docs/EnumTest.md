@@ -66,24 +66,12 @@ Name | Type | Description | Notes
 ## Enum: OuterEnumEnum
 
 
-* `placed` (value: `"placed"`)
-
-* `approved` (value: `"approved"`)
-
-* `delivered` (value: `"delivered"`)
-
 
 
 
 
 ## Enum: OuterEnumIntegerEnum
 
-
-* `0` (value: `0`)
-
-* `1` (value: `1`)
-
-* `2` (value: `2`)
 
 
 
@@ -92,24 +80,12 @@ Name | Type | Description | Notes
 ## Enum: OuterEnumDefaultValueEnum
 
 
-* `placed` (value: `"placed"`)
-
-* `approved` (value: `"approved"`)
-
-* `delivered` (value: `"delivered"`)
-
 
 
 
 
 ## Enum: OuterEnumIntegerDefaultValueEnum
 
-
-* `0` (value: `0`)
-
-* `1` (value: `1`)
-
-* `2` (value: `2`)
 
 
 
