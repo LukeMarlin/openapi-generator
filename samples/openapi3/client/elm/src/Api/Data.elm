@@ -15,7 +15,7 @@
 
 module Api.Data exposing
     ( Absent
-    , Array
+    , Array, ArrayArrayOfEnum(..), arrayArrayOfEnumVariants
     , Composed
     , ComposedBase
     , Discriminated(..)
@@ -92,8 +92,22 @@ type alias Array =
     { array : List (String)
     , arrayOfArray : List (List (String))
     , arrayOfPrimitve : Maybe (List (Primitive))
-    , arrayOfEnum : Maybe (List (Enum))
+    , arrayOfEnum : Maybe (List ArrayArrayOfEnum)
     }
+
+
+type ArrayArrayOfEnum
+    = ArrayArrayOfEnumFoo
+    | ArrayArrayOfEnumBar
+    | ArrayArrayOfEnumBaz
+
+
+arrayArrayOfEnumVariants : List ArrayArrayOfEnum
+arrayArrayOfEnumVariants =
+    [ ArrayArrayOfEnumFoo
+    , ArrayArrayOfEnumBar
+    , ArrayArrayOfEnumBaz
+    ]
 
 
 {-| Composed model
@@ -298,10 +312,28 @@ encodeArrayPairs model =
             [ encode "array" (Json.Encode.list Json.Encode.string) model.array
             , encode "arrayOfArray" (Json.Encode.list (Json.Encode.list Json.Encode.string)) model.arrayOfArray
             , maybeEncode "arrayOfPrimitve" (Json.Encode.list encodePrimitive) model.arrayOfPrimitve
-            , maybeEncode "arrayOfEnum" (Json.Encode.list encodeEnum) model.arrayOfEnum
+            , maybeEncode "arrayOfEnum" (Json.Encode.list encodeArrayArrayOfEnum) model.arrayOfEnum
             ]
     in
     pairs
+
+stringFromArrayArrayOfEnum : ArrayArrayOfEnum -> String
+stringFromArrayArrayOfEnum model =
+    case model of
+        ArrayArrayOfEnumFoo ->
+            "foo"
+
+        ArrayArrayOfEnumBar ->
+            "bar"
+
+        ArrayArrayOfEnumBaz ->
+            "baz"
+
+
+encodeArrayArrayOfEnum : ArrayArrayOfEnum -> Json.Encode.Value
+encodeArrayArrayOfEnum =
+    Json.Encode.int << intFromArrayArrayOfEnum
+
 
 
 encodeComposed : Composed -> Json.Encode.Value
@@ -647,7 +679,28 @@ arrayDecoder =
         |> decode "array" (Json.Decode.list Json.Decode.string) 
         |> decode "arrayOfArray" (Json.Decode.list (Json.Decode.list Json.Decode.string)) 
         |> maybeDecode "arrayOfPrimitve" (Json.Decode.list primitiveDecoder) Nothing
-        |> maybeDecode "arrayOfEnum" (Json.Decode.list enumDecoder) Nothing
+        |> maybeDecode "arrayOfEnum" (Json.Decode.list arrayArrayOfEnumDecoder) Nothing
+
+
+arrayArrayOfEnumDecoder : Json.Decode.Decoder ArrayArrayOfEnum
+arrayArrayOfEnumDecoder =
+    Json.Decode.int
+        |> Json.Decode.andThen
+            (\value ->
+                case value of
+                    "foo" ->
+                        Json.Decode.succeed ArrayArrayOfEnumFoo
+
+                    "bar" ->
+                        Json.Decode.succeed ArrayArrayOfEnumBar
+
+                    "baz" ->
+                        Json.Decode.succeed ArrayArrayOfEnumBaz
+
+                    other ->
+                        Json.Decode.fail <| "Unknown type: " ++ String.fromInt other
+            )
+
 
 
 composedDecoder : Json.Decode.Decoder Composed

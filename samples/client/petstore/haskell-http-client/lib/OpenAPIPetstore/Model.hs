@@ -1029,7 +1029,7 @@ data EnumTest = EnumTest
   , enumTestEnumStringRequired :: !(E'EnumString) -- ^ /Required/ "enum_string_required"
   , enumTestEnumInteger :: !(Maybe E'EnumInteger) -- ^ "enum_integer"
   , enumTestEnumNumber :: !(Maybe E'EnumNumber) -- ^ "enum_number"
-  , enumTestOuterEnum :: !(Maybe OuterEnum) -- ^ "outerEnum"
+  , enumTestOuterEnum :: !(Maybe E'OuterEnum) -- ^ "outerEnum"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON EnumTest

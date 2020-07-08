@@ -153,7 +153,40 @@ public enum EnumNumberEnum {
 }
 
   private @Valid EnumNumberEnum enumNumber;
-  private @Valid OuterEnum outerEnum;
+
+public enum OuterEnumEnum {
+
+    PLACED(OuterEnum.valueOf("placed")), APPROVED(OuterEnum.valueOf("approved")), DELIVERED(OuterEnum.valueOf("delivered"));
+
+
+    private OuterEnum value;
+
+    OuterEnumEnum (OuterEnum v) {
+        value = v;
+    }
+
+    public OuterEnum value() {
+        return value;
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OuterEnumEnum fromValue(OuterEnum value) {
+        for (OuterEnumEnum b : OuterEnumEnum.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+}
+
+  private @Valid OuterEnumEnum outerEnum;
 
   /**
    **/
@@ -230,7 +263,7 @@ public enum EnumNumberEnum {
     this.enumNumber = enumNumber;
   }/**
    **/
-  public EnumTest outerEnum(OuterEnum outerEnum) {
+  public EnumTest outerEnum(OuterEnumEnum outerEnum) {
     this.outerEnum = outerEnum;
     return this;
   }
@@ -240,11 +273,11 @@ public enum EnumNumberEnum {
   
   @ApiModelProperty(value = "")
   @JsonProperty("outerEnum")
-  public OuterEnum getOuterEnum() {
+  public OuterEnumEnum getOuterEnum() {
     return outerEnum;
   }
 
-  public void setOuterEnum(OuterEnum outerEnum) {
+  public void setOuterEnum(OuterEnumEnum outerEnum) {
     this.outerEnum = outerEnum;
   }
 

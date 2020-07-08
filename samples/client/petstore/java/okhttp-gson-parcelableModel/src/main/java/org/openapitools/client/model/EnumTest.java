@@ -240,9 +240,58 @@ public class EnumTest implements Parcelable {
   @SerializedName(SERIALIZED_NAME_ENUM_NUMBER)
   private EnumNumberEnum enumNumber;
 
+  /**
+   * Gets or Sets outerEnum
+   */
+  @JsonAdapter(OuterEnumEnum.Adapter.class)
+  public enum OuterEnumEnum {
+    PLACED("placed"),
+    
+    APPROVED("approved"),
+    
+    DELIVERED("delivered");
+
+    private OuterEnum value;
+
+    OuterEnumEnum(OuterEnum value) {
+      this.value = value;
+    }
+
+    public OuterEnum getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static OuterEnumEnum fromValue(OuterEnum value) {
+      for (OuterEnumEnum b : OuterEnumEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<OuterEnumEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final OuterEnumEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public OuterEnumEnum read(final JsonReader jsonReader) throws IOException {
+        OuterEnum value =  jsonReader.nextOuterEnum();
+        return OuterEnumEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_OUTER_ENUM = "outerEnum";
   @SerializedName(SERIALIZED_NAME_OUTER_ENUM)
-  private OuterEnum outerEnum;
+  private OuterEnumEnum outerEnum;
 
   public EnumTest() {
   }
@@ -338,7 +387,7 @@ public class EnumTest implements Parcelable {
   }
 
 
-  public EnumTest outerEnum(OuterEnum outerEnum) {
+  public EnumTest outerEnum(OuterEnumEnum outerEnum) {
     
     this.outerEnum = outerEnum;
     return this;
@@ -351,12 +400,12 @@ public class EnumTest implements Parcelable {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public OuterEnum getOuterEnum() {
+  public OuterEnumEnum getOuterEnum() {
     return outerEnum;
   }
 
 
-  public void setOuterEnum(OuterEnum outerEnum) {
+  public void setOuterEnum(OuterEnumEnum outerEnum) {
     this.outerEnum = outerEnum;
   }
 
@@ -421,7 +470,7 @@ public class EnumTest implements Parcelable {
     enumStringRequired = (EnumStringRequiredEnum)in.readValue(null);
     enumInteger = (EnumIntegerEnum)in.readValue(null);
     enumNumber = (EnumNumberEnum)in.readValue(null);
-    outerEnum = (OuterEnum)in.readValue(OuterEnum.class.getClassLoader());
+    outerEnum = (OuterEnumEnum)in.readValue(OuterEnum.class.getClassLoader());
   }
 
   public int describeContents() {

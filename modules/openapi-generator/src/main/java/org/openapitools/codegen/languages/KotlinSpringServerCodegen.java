@@ -518,7 +518,14 @@ public class KotlinSpringServerCodegen extends AbstractKotlinCodegen
         if (!Boolean.TRUE.equals(model.isEnum)) {
             model.imports.add("JsonProperty");
             if (Boolean.TRUE.equals(model.hasEnums)) {
-                model.imports.add("JsonValue");
+                //Loop through properties to check if one is an embedded enum
+                for (CodegenProperty prop : model.allVars) {
+                    //If a property is an enum and a primitive type, it is an embedded enum
+                    if (prop.isEnum && prop.isPrimitiveType) {
+                        model.imports.add("JsonValue");
+                        break;
+                    }
+                }
             }
         } else {
             //Needed imports for Jackson's JsonCreator

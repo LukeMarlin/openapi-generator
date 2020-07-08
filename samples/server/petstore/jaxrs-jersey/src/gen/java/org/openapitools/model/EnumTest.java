@@ -186,21 +186,153 @@ public class EnumTest   {
   @JsonProperty(JSON_PROPERTY_ENUM_NUMBER)
   private EnumNumberEnum enumNumber;
 
+  /**
+   * Gets or Sets outerEnum
+   */
+  public enum OuterEnumEnum {
+    PLACED("placed"),
+    
+    APPROVED("approved"),
+    
+    DELIVERED("delivered");
+
+    private OuterEnum value;
+
+    OuterEnumEnum(OuterEnum value) {
+      this.value = value;
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OuterEnumEnum fromValue(OuterEnum value) {
+      for (OuterEnumEnum b : OuterEnumEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+  }
+
   public static final String JSON_PROPERTY_OUTER_ENUM = "outerEnum";
   @JsonProperty(JSON_PROPERTY_OUTER_ENUM)
-  private OuterEnum outerEnum;
+  private OuterEnumEnum outerEnum;
+
+  /**
+   * Gets or Sets outerEnumInteger
+   */
+  public enum OuterEnumIntegerEnum {
+    NUMBER_0(0),
+    
+    NUMBER_1(1),
+    
+    NUMBER_2(2);
+
+    private OuterEnumInteger value;
+
+    OuterEnumIntegerEnum(OuterEnumInteger value) {
+      this.value = value;
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OuterEnumIntegerEnum fromValue(OuterEnumInteger value) {
+      for (OuterEnumIntegerEnum b : OuterEnumIntegerEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
 
   public static final String JSON_PROPERTY_OUTER_ENUM_INTEGER = "outerEnumInteger";
   @JsonProperty(JSON_PROPERTY_OUTER_ENUM_INTEGER)
-  private OuterEnumInteger outerEnumInteger;
+  private OuterEnumIntegerEnum outerEnumInteger;
+
+  /**
+   * Gets or Sets outerEnumDefaultValue
+   */
+  public enum OuterEnumDefaultValueEnum {
+    PLACED("placed"),
+    
+    APPROVED("approved"),
+    
+    DELIVERED("delivered");
+
+    private OuterEnumDefaultValue value;
+
+    OuterEnumDefaultValueEnum(OuterEnumDefaultValue value) {
+      this.value = value;
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OuterEnumDefaultValueEnum fromValue(OuterEnumDefaultValue value) {
+      for (OuterEnumDefaultValueEnum b : OuterEnumDefaultValueEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
 
   public static final String JSON_PROPERTY_OUTER_ENUM_DEFAULT_VALUE = "outerEnumDefaultValue";
   @JsonProperty(JSON_PROPERTY_OUTER_ENUM_DEFAULT_VALUE)
-  private OuterEnumDefaultValue outerEnumDefaultValue = OuterEnumDefaultValue.PLACED;
+  private OuterEnumDefaultValueEnum outerEnumDefaultValue = OuterEnumDefaultValueEnum.PLACED;
+
+  /**
+   * Gets or Sets outerEnumIntegerDefaultValue
+   */
+  public enum OuterEnumIntegerDefaultValueEnum {
+    NUMBER_0(0),
+    
+    NUMBER_1(1),
+    
+    NUMBER_2(2);
+
+    private OuterEnumIntegerDefaultValue value;
+
+    OuterEnumIntegerDefaultValueEnum(OuterEnumIntegerDefaultValue value) {
+      this.value = value;
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OuterEnumIntegerDefaultValueEnum fromValue(OuterEnumIntegerDefaultValue value) {
+      for (OuterEnumIntegerDefaultValueEnum b : OuterEnumIntegerDefaultValueEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
 
   public static final String JSON_PROPERTY_OUTER_ENUM_INTEGER_DEFAULT_VALUE = "outerEnumIntegerDefaultValue";
   @JsonProperty(JSON_PROPERTY_OUTER_ENUM_INTEGER_DEFAULT_VALUE)
-  private OuterEnumIntegerDefaultValue outerEnumIntegerDefaultValue = OuterEnumIntegerDefaultValue.NUMBER_0;
+  private OuterEnumIntegerDefaultValueEnum outerEnumIntegerDefaultValue = OuterEnumIntegerDefaultValueEnum.NUMBER_0;
 
   public EnumTest enumString(EnumStringEnum enumString) {
     this.enumString = enumString;
@@ -282,7 +414,7 @@ public class EnumTest   {
     this.enumNumber = enumNumber;
   }
 
-  public EnumTest outerEnum(OuterEnum outerEnum) {
+  public EnumTest outerEnum(OuterEnumEnum outerEnum) {
     this.outerEnum = outerEnum;
     return this;
   }
@@ -294,15 +426,15 @@ public class EnumTest   {
   @JsonProperty("outerEnum")
   @ApiModelProperty(value = "")
   @Valid 
-  public OuterEnum getOuterEnum() {
+  public OuterEnumEnum getOuterEnum() {
     return outerEnum;
   }
 
-  public void setOuterEnum(OuterEnum outerEnum) {
+  public void setOuterEnum(OuterEnumEnum outerEnum) {
     this.outerEnum = outerEnum;
   }
 
-  public EnumTest outerEnumInteger(OuterEnumInteger outerEnumInteger) {
+  public EnumTest outerEnumInteger(OuterEnumIntegerEnum outerEnumInteger) {
     this.outerEnumInteger = outerEnumInteger;
     return this;
   }
@@ -314,15 +446,15 @@ public class EnumTest   {
   @JsonProperty("outerEnumInteger")
   @ApiModelProperty(value = "")
   @Valid 
-  public OuterEnumInteger getOuterEnumInteger() {
+  public OuterEnumIntegerEnum getOuterEnumInteger() {
     return outerEnumInteger;
   }
 
-  public void setOuterEnumInteger(OuterEnumInteger outerEnumInteger) {
+  public void setOuterEnumInteger(OuterEnumIntegerEnum outerEnumInteger) {
     this.outerEnumInteger = outerEnumInteger;
   }
 
-  public EnumTest outerEnumDefaultValue(OuterEnumDefaultValue outerEnumDefaultValue) {
+  public EnumTest outerEnumDefaultValue(OuterEnumDefaultValueEnum outerEnumDefaultValue) {
     this.outerEnumDefaultValue = outerEnumDefaultValue;
     return this;
   }
@@ -334,15 +466,15 @@ public class EnumTest   {
   @JsonProperty("outerEnumDefaultValue")
   @ApiModelProperty(value = "")
   @Valid 
-  public OuterEnumDefaultValue getOuterEnumDefaultValue() {
+  public OuterEnumDefaultValueEnum getOuterEnumDefaultValue() {
     return outerEnumDefaultValue;
   }
 
-  public void setOuterEnumDefaultValue(OuterEnumDefaultValue outerEnumDefaultValue) {
+  public void setOuterEnumDefaultValue(OuterEnumDefaultValueEnum outerEnumDefaultValue) {
     this.outerEnumDefaultValue = outerEnumDefaultValue;
   }
 
-  public EnumTest outerEnumIntegerDefaultValue(OuterEnumIntegerDefaultValue outerEnumIntegerDefaultValue) {
+  public EnumTest outerEnumIntegerDefaultValue(OuterEnumIntegerDefaultValueEnum outerEnumIntegerDefaultValue) {
     this.outerEnumIntegerDefaultValue = outerEnumIntegerDefaultValue;
     return this;
   }
@@ -354,11 +486,11 @@ public class EnumTest   {
   @JsonProperty("outerEnumIntegerDefaultValue")
   @ApiModelProperty(value = "")
   @Valid 
-  public OuterEnumIntegerDefaultValue getOuterEnumIntegerDefaultValue() {
+  public OuterEnumIntegerDefaultValueEnum getOuterEnumIntegerDefaultValue() {
     return outerEnumIntegerDefaultValue;
   }
 
-  public void setOuterEnumIntegerDefaultValue(OuterEnumIntegerDefaultValue outerEnumIntegerDefaultValue) {
+  public void setOuterEnumIntegerDefaultValue(OuterEnumIntegerDefaultValueEnum outerEnumIntegerDefaultValue) {
     this.outerEnumIntegerDefaultValue = outerEnumIntegerDefaultValue;
   }
 

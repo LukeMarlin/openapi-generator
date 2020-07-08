@@ -3168,6 +3168,7 @@ public class DefaultCodegen implements CodegenConfig {
         if (referencedSchema.getEnum() != null && !referencedSchema.getEnum().isEmpty()) {
             List<Object> _enum = referencedSchema.getEnum();
 
+            property.isEnum = true;
             Map<String, Object> allowableValues = new HashMap<String, Object>();
             allowableValues.put("values", _enum);
             if (allowableValues.size() > 0) {

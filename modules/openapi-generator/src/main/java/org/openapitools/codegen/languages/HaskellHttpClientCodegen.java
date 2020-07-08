@@ -1339,18 +1339,19 @@ public class HaskellHttpClientCodegen extends DefaultCodegen implements CodegenC
             return toEnumName(var.items);
         }
         String paramNameType = "E'" + toTypeName("", var.name);
-        String enumValues = var._enum.toString();
+        if (var._enum != null) {
+            String enumValues = var._enum.toString();
 
-        Pair<Boolean, String> duplicateEnum = isDuplicateEnumValues(enumValues);
-        if (duplicateEnum.getLeft()) {
-            paramNameType = duplicateEnum.getRight();
-        } else {
-            paramNameType = toDedupedModelName(paramNameType, enumValues, false);
-            var.datatypeWithEnum = paramNameType;
-            updateCodegenPropertyEnum(var);
-            addEnumToUniques(paramNameType, var.dataType, enumValues, var.allowableValues, var.description);
+            Pair<Boolean, String> duplicateEnum = isDuplicateEnumValues(enumValues);
+            if (duplicateEnum.getLeft()) {
+                paramNameType = duplicateEnum.getRight();
+            } else {
+                paramNameType = toDedupedModelName(paramNameType, enumValues, false);
+                var.datatypeWithEnum = paramNameType;
+                updateCodegenPropertyEnum(var);
+                addEnumToUniques(paramNameType, var.dataType, enumValues, var.allowableValues, var.description);
+            }
         }
-
         return paramNameType;
     }
 

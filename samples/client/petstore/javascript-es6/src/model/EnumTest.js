@@ -105,22 +105,22 @@ EnumTest.prototype['enum_integer'] = undefined;
 EnumTest.prototype['enum_number'] = undefined;
 
 /**
- * @member {module:model/OuterEnum} outerEnum
+ * @member {module:model/EnumTest.OuterEnumEnum} outerEnum
  */
 EnumTest.prototype['outerEnum'] = undefined;
 
 /**
- * @member {module:model/OuterEnumInteger} outerEnumInteger
+ * @member {module:model/EnumTest.OuterEnumIntegerEnum} outerEnumInteger
  */
 EnumTest.prototype['outerEnumInteger'] = undefined;
 
 /**
- * @member {module:model/OuterEnumDefaultValue} outerEnumDefaultValue
+ * @member {module:model/EnumTest.OuterEnumDefaultValueEnum} outerEnumDefaultValue
  */
 EnumTest.prototype['outerEnumDefaultValue'] = undefined;
 
 /**
- * @member {module:model/OuterEnumIntegerDefaultValue} outerEnumIntegerDefaultValue
+ * @member {module:model/EnumTest.OuterEnumIntegerDefaultValueEnum} outerEnumIntegerDefaultValue
  */
 EnumTest.prototype['outerEnumIntegerDefaultValue'] = undefined;
 
@@ -221,6 +221,114 @@ EnumTest['EnumNumberEnum'] = {
      * @const
      */
     "-1.2": -1.2
+};
+
+
+/**
+ * Allowed values for the <code>outerEnum</code> property.
+ * @enum {OuterEnum}
+ * @readonly
+ */
+EnumTest['OuterEnumEnum'] = {
+
+    /**
+     * value: "placed"
+     * @const
+     */
+    "placed": "placed",
+
+    /**
+     * value: "approved"
+     * @const
+     */
+    "approved": "approved",
+
+    /**
+     * value: "delivered"
+     * @const
+     */
+    "delivered": "delivered"
+};
+
+
+/**
+ * Allowed values for the <code>outerEnumInteger</code> property.
+ * @enum {OuterEnumInteger}
+ * @readonly
+ */
+EnumTest['OuterEnumIntegerEnum'] = {
+
+    /**
+     * value: 0
+     * @const
+     */
+    "0": 0,
+
+    /**
+     * value: 1
+     * @const
+     */
+    "1": 1,
+
+    /**
+     * value: 2
+     * @const
+     */
+    "2": 2
+};
+
+
+/**
+ * Allowed values for the <code>outerEnumDefaultValue</code> property.
+ * @enum {OuterEnumDefaultValue}
+ * @readonly
+ */
+EnumTest['OuterEnumDefaultValueEnum'] = {
+
+    /**
+     * value: "placed"
+     * @const
+     */
+    "placed": "placed",
+
+    /**
+     * value: "approved"
+     * @const
+     */
+    "approved": "approved",
+
+    /**
+     * value: "delivered"
+     * @const
+     */
+    "delivered": "delivered"
+};
+
+
+/**
+ * Allowed values for the <code>outerEnumIntegerDefaultValue</code> property.
+ * @enum {OuterEnumIntegerDefaultValue}
+ * @readonly
+ */
+EnumTest['OuterEnumIntegerDefaultValueEnum'] = {
+
+    /**
+     * value: 0
+     * @const
+     */
+    "0": 0,
+
+    /**
+     * value: 1
+     * @const
+     */
+    "1": 1,
+
+    /**
+     * value: 2
+     * @const
+     */
+    "2": 2
 };
 
 

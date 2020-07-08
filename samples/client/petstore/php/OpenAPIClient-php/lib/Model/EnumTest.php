@@ -203,6 +203,18 @@ class EnumTest implements ModelInterface, ArrayAccess
     const ENUM_INTEGER_MINUS_1 = -1;
     const ENUM_NUMBER_1_DOT_1 = 1.1;
     const ENUM_NUMBER_MINUS_1_DOT_2 = -1.2;
+    const OUTER_ENUM_PLACED = 'placed';
+    const OUTER_ENUM_APPROVED = 'approved';
+    const OUTER_ENUM_DELIVERED = 'delivered';
+    const OUTER_ENUM_INTEGER__0 = '0';
+    const OUTER_ENUM_INTEGER__1 = '1';
+    const OUTER_ENUM_INTEGER__2 = '2';
+    const OUTER_ENUM_DEFAULT_VALUE_PLACED = 'placed';
+    const OUTER_ENUM_DEFAULT_VALUE_APPROVED = 'approved';
+    const OUTER_ENUM_DEFAULT_VALUE_DELIVERED = 'delivered';
+    const OUTER_ENUM_INTEGER_DEFAULT_VALUE__0 = '0';
+    const OUTER_ENUM_INTEGER_DEFAULT_VALUE__1 = '1';
+    const OUTER_ENUM_INTEGER_DEFAULT_VALUE__2 = '2';
     
 
     
@@ -257,6 +269,62 @@ class EnumTest implements ModelInterface, ArrayAccess
         return [
             self::ENUM_NUMBER_1_DOT_1,
             self::ENUM_NUMBER_MINUS_1_DOT_2,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getOuterEnumAllowableValues()
+    {
+        return [
+            self::OUTER_ENUM_PLACED,
+            self::OUTER_ENUM_APPROVED,
+            self::OUTER_ENUM_DELIVERED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getOuterEnumIntegerAllowableValues()
+    {
+        return [
+            self::OUTER_ENUM_INTEGER__0,
+            self::OUTER_ENUM_INTEGER__1,
+            self::OUTER_ENUM_INTEGER__2,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getOuterEnumDefaultValueAllowableValues()
+    {
+        return [
+            self::OUTER_ENUM_DEFAULT_VALUE_PLACED,
+            self::OUTER_ENUM_DEFAULT_VALUE_APPROVED,
+            self::OUTER_ENUM_DEFAULT_VALUE_DELIVERED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getOuterEnumIntegerDefaultValueAllowableValues()
+    {
+        return [
+            self::OUTER_ENUM_INTEGER_DEFAULT_VALUE__0,
+            self::OUTER_ENUM_INTEGER_DEFAULT_VALUE__1,
+            self::OUTER_ENUM_INTEGER_DEFAULT_VALUE__2,
         ];
     }
     
@@ -326,6 +394,38 @@ class EnumTest implements ModelInterface, ArrayAccess
         if (!is_null($this->container['enum_number']) && !in_array($this->container['enum_number'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'enum_number', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getOuterEnumAllowableValues();
+        if (!is_null($this->container['outer_enum']) && !in_array($this->container['outer_enum'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'outer_enum', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getOuterEnumIntegerAllowableValues();
+        if (!is_null($this->container['outer_enum_integer']) && !in_array($this->container['outer_enum_integer'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'outer_enum_integer', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getOuterEnumDefaultValueAllowableValues();
+        if (!is_null($this->container['outer_enum_default_value']) && !in_array($this->container['outer_enum_default_value'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'outer_enum_default_value', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getOuterEnumIntegerDefaultValueAllowableValues();
+        if (!is_null($this->container['outer_enum_integer_default_value']) && !in_array($this->container['outer_enum_integer_default_value'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'outer_enum_integer_default_value', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -496,6 +596,15 @@ class EnumTest implements ModelInterface, ArrayAccess
      */
     public function setOuterEnum($outer_enum)
     {
+        $allowedValues = $this->getOuterEnumAllowableValues();
+        if (!is_null($outer_enum) && !in_array($outer_enum, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'outer_enum', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['outer_enum'] = $outer_enum;
 
         return $this;
@@ -520,6 +629,15 @@ class EnumTest implements ModelInterface, ArrayAccess
      */
     public function setOuterEnumInteger($outer_enum_integer)
     {
+        $allowedValues = $this->getOuterEnumIntegerAllowableValues();
+        if (!is_null($outer_enum_integer) && !in_array($outer_enum_integer, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'outer_enum_integer', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['outer_enum_integer'] = $outer_enum_integer;
 
         return $this;
@@ -544,6 +662,15 @@ class EnumTest implements ModelInterface, ArrayAccess
      */
     public function setOuterEnumDefaultValue($outer_enum_default_value)
     {
+        $allowedValues = $this->getOuterEnumDefaultValueAllowableValues();
+        if (!is_null($outer_enum_default_value) && !in_array($outer_enum_default_value, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'outer_enum_default_value', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['outer_enum_default_value'] = $outer_enum_default_value;
 
         return $this;
@@ -568,6 +695,15 @@ class EnumTest implements ModelInterface, ArrayAccess
      */
     public function setOuterEnumIntegerDefaultValue($outer_enum_integer_default_value)
     {
+        $allowedValues = $this->getOuterEnumIntegerDefaultValueAllowableValues();
+        if (!is_null($outer_enum_integer_default_value) && !in_array($outer_enum_integer_default_value, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'outer_enum_integer_default_value', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['outer_enum_integer_default_value'] = $outer_enum_integer_default_value;
 
         return $this;

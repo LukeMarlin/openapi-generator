@@ -201,9 +201,46 @@ public class EnumTest {
   @XmlElement(name = "enum_number")
   private EnumNumberEnum enumNumber;
 
+  /**
+   * Gets or Sets outerEnum
+   */
+  public enum OuterEnumEnum {
+    PLACED("placed"),
+    
+    APPROVED("approved"),
+    
+    DELIVERED("delivered");
+
+    private OuterEnum value;
+
+    OuterEnumEnum(OuterEnum value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public OuterEnum getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OuterEnumEnum fromValue(OuterEnum value) {
+      for (OuterEnumEnum b : OuterEnumEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
   public static final String JSON_PROPERTY_OUTER_ENUM = "outerEnum";
   @XmlElement(name = "outerEnum")
-  private OuterEnum outerEnum;
+  private OuterEnumEnum outerEnum;
 
 
   public EnumTest enumString(EnumStringEnum enumString) {
@@ -309,7 +346,7 @@ public class EnumTest {
   }
 
 
-  public EnumTest outerEnum(OuterEnum outerEnum) {
+  public EnumTest outerEnum(OuterEnumEnum outerEnum) {
     
     this.outerEnum = outerEnum;
     return this;
@@ -325,12 +362,12 @@ public class EnumTest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   @JacksonXmlProperty(localName = "outerEnum")
 
-  public OuterEnum getOuterEnum() {
+  public OuterEnumEnum getOuterEnum() {
     return outerEnum;
   }
 
 
-  public void setOuterEnum(OuterEnum outerEnum) {
+  public void setOuterEnum(OuterEnumEnum outerEnum) {
     this.outerEnum = outerEnum;
   }
 
