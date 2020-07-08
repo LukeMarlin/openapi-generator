@@ -176,6 +176,11 @@ public class EnumTest   {
    * Gets or Sets outerEnum
    */
   public enum OuterEnumEnum {
+    PLACED("placed"),
+    
+    APPROVED("approved"),
+    
+    DELIVERED("delivered");
 
     private OuterEnum value;
 

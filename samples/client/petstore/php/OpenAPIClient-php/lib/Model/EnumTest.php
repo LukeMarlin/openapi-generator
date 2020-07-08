@@ -203,6 +203,18 @@ class EnumTest implements ModelInterface, ArrayAccess
     const ENUM_INTEGER_MINUS_1 = -1;
     const ENUM_NUMBER_1_DOT_1 = 1.1;
     const ENUM_NUMBER_MINUS_1_DOT_2 = -1.2;
+    const OUTER_ENUM_PLACED = 'placed';
+    const OUTER_ENUM_APPROVED = 'approved';
+    const OUTER_ENUM_DELIVERED = 'delivered';
+    const OUTER_ENUM_INTEGER__0 = '0';
+    const OUTER_ENUM_INTEGER__1 = '1';
+    const OUTER_ENUM_INTEGER__2 = '2';
+    const OUTER_ENUM_DEFAULT_VALUE_PLACED = 'placed';
+    const OUTER_ENUM_DEFAULT_VALUE_APPROVED = 'approved';
+    const OUTER_ENUM_DEFAULT_VALUE_DELIVERED = 'delivered';
+    const OUTER_ENUM_INTEGER_DEFAULT_VALUE__0 = '0';
+    const OUTER_ENUM_INTEGER_DEFAULT_VALUE__1 = '1';
+    const OUTER_ENUM_INTEGER_DEFAULT_VALUE__2 = '2';
     
 
     
@@ -268,7 +280,9 @@ class EnumTest implements ModelInterface, ArrayAccess
     public function getOuterEnumAllowableValues()
     {
         return [
-            
+            self::OUTER_ENUM_PLACED,
+            self::OUTER_ENUM_APPROVED,
+            self::OUTER_ENUM_DELIVERED,
         ];
     }
     
@@ -280,7 +294,9 @@ class EnumTest implements ModelInterface, ArrayAccess
     public function getOuterEnumIntegerAllowableValues()
     {
         return [
-            
+            self::OUTER_ENUM_INTEGER__0,
+            self::OUTER_ENUM_INTEGER__1,
+            self::OUTER_ENUM_INTEGER__2,
         ];
     }
     
@@ -292,7 +308,9 @@ class EnumTest implements ModelInterface, ArrayAccess
     public function getOuterEnumDefaultValueAllowableValues()
     {
         return [
-            
+            self::OUTER_ENUM_DEFAULT_VALUE_PLACED,
+            self::OUTER_ENUM_DEFAULT_VALUE_APPROVED,
+            self::OUTER_ENUM_DEFAULT_VALUE_DELIVERED,
         ];
     }
     
@@ -304,7 +322,9 @@ class EnumTest implements ModelInterface, ArrayAccess
     public function getOuterEnumIntegerDefaultValueAllowableValues()
     {
         return [
-            
+            self::OUTER_ENUM_INTEGER_DEFAULT_VALUE__0,
+            self::OUTER_ENUM_INTEGER_DEFAULT_VALUE__1,
+            self::OUTER_ENUM_INTEGER_DEFAULT_VALUE__2,
         ];
     }
     

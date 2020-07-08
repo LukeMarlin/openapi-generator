@@ -160,7 +160,7 @@ public enum EnumNumberEnum {
 @XmlEnum(OuterEnum.class)
 public enum OuterEnumEnum {
 
-
+@XmlEnumValue("placed") PLACED(OuterEnum.valueOf("placed")), @XmlEnumValue("approved") APPROVED(OuterEnum.valueOf("approved")), @XmlEnumValue("delivered") DELIVERED(OuterEnum.valueOf("delivered"));
 
 
     private OuterEnum value;

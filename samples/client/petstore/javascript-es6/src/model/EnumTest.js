@@ -231,6 +231,23 @@ EnumTest['EnumNumberEnum'] = {
  */
 EnumTest['OuterEnumEnum'] = {
 
+    /**
+     * value: "placed"
+     * @const
+     */
+    "placed": "placed",
+
+    /**
+     * value: "approved"
+     * @const
+     */
+    "approved": "approved",
+
+    /**
+     * value: "delivered"
+     * @const
+     */
+    "delivered": "delivered"
 };
 
 
@@ -241,6 +258,23 @@ EnumTest['OuterEnumEnum'] = {
  */
 EnumTest['OuterEnumIntegerEnum'] = {
 
+    /**
+     * value: 0
+     * @const
+     */
+    "0": 0,
+
+    /**
+     * value: 1
+     * @const
+     */
+    "1": 1,
+
+    /**
+     * value: 2
+     * @const
+     */
+    "2": 2
 };
 
 
@@ -251,6 +285,23 @@ EnumTest['OuterEnumIntegerEnum'] = {
  */
 EnumTest['OuterEnumDefaultValueEnum'] = {
 
+    /**
+     * value: "placed"
+     * @const
+     */
+    "placed": "placed",
+
+    /**
+     * value: "approved"
+     * @const
+     */
+    "approved": "approved",
+
+    /**
+     * value: "delivered"
+     * @const
+     */
+    "delivered": "delivered"
 };
 
 
@@ -261,6 +312,23 @@ EnumTest['OuterEnumDefaultValueEnum'] = {
  */
 EnumTest['OuterEnumIntegerDefaultValueEnum'] = {
 
+    /**
+     * value: 0
+     * @const
+     */
+    "0": 0,
+
+    /**
+     * value: 1
+     * @const
+     */
+    "1": 1,
+
+    /**
+     * value: 2
+     * @const
+     */
+    "2": 2
 };
 
 

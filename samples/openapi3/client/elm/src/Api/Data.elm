@@ -97,10 +97,16 @@ type alias Array =
 
 
 type ArrayArrayOfEnum
+    = ArrayArrayOfEnumFoo
+    | ArrayArrayOfEnumBar
+    | ArrayArrayOfEnumBaz
 
 
 arrayArrayOfEnumVariants : List ArrayArrayOfEnum
 arrayArrayOfEnumVariants =
+    [ ArrayArrayOfEnumFoo
+    , ArrayArrayOfEnumBar
+    , ArrayArrayOfEnumBaz
     ]
 
 
@@ -314,6 +320,15 @@ encodeArrayPairs model =
 stringFromArrayArrayOfEnum : ArrayArrayOfEnum -> String
 stringFromArrayArrayOfEnum model =
     case model of
+        ArrayArrayOfEnumFoo ->
+            "foo"
+
+        ArrayArrayOfEnumBar ->
+            "bar"
+
+        ArrayArrayOfEnumBaz ->
+            "baz"
+
 
 encodeArrayArrayOfEnum : ArrayArrayOfEnum -> Json.Encode.Value
 encodeArrayArrayOfEnum =
@@ -673,6 +688,15 @@ arrayArrayOfEnumDecoder =
         |> Json.Decode.andThen
             (\value ->
                 case value of
+                    "foo" ->
+                        Json.Decode.succeed ArrayArrayOfEnumFoo
+
+                    "bar" ->
+                        Json.Decode.succeed ArrayArrayOfEnumBar
+
+                    "baz" ->
+                        Json.Decode.succeed ArrayArrayOfEnumBaz
+
                     other ->
                         Json.Decode.fail <| "Unknown type: " ++ String.fromInt other
             )

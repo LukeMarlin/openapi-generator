@@ -245,6 +245,11 @@ public class EnumTest implements Parcelable {
    */
   @JsonAdapter(OuterEnumEnum.Adapter.class)
   public enum OuterEnumEnum {
+    PLACED("placed"),
+    
+    APPROVED("approved"),
+    
+    DELIVERED("delivered");
 
     private OuterEnum value;
 

@@ -59,6 +59,9 @@ NUMBER_MINUS_1_DOT_2 | -1.2
 
 Name | Value
 ---- | -----
+PLACED | &quot;placed&quot;
+APPROVED | &quot;approved&quot;
+DELIVERED | &quot;delivered&quot;
 
 
 
@@ -66,6 +69,9 @@ Name | Value
 
 Name | Value
 ---- | -----
+NUMBER_0 | 0
+NUMBER_1 | 1
+NUMBER_2 | 2
 
 
 
@@ -73,6 +79,9 @@ Name | Value
 
 Name | Value
 ---- | -----
+PLACED | &quot;placed&quot;
+APPROVED | &quot;approved&quot;
+DELIVERED | &quot;delivered&quot;
 
 
 
@@ -80,6 +89,9 @@ Name | Value
 
 Name | Value
 ---- | -----
+NUMBER_0 | 0
+NUMBER_1 | 1
+NUMBER_2 | 2
 
 
 
